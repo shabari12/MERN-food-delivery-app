@@ -1,3 +1,4 @@
+Food Delivery App
 
 To run the Code open command terminal in Fronend folder or admin folder run npm install and npm start 
 

@@ -1,0 +1,10 @@
+
+// FOR BACKEND
+
+npm i express mongoose jsonwebtoken bcrypt cors dotenv body-parser multer stripe validator nodemon
+
+
+
+
+
+Ignore Some Spelling mistakes in File naming (controller files) kindly change it

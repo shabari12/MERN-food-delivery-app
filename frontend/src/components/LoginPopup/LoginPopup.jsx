@@ -5,7 +5,7 @@ import axios from "axios";
 import { StoreContext } from "../../context/StoreContext";
 
 const LoginPopup = ({ setShowLogin }) => {
-  const { url, token, setToken } = useContext(StoreContext);
+  const { url, setToken } = useContext(StoreContext); // Removed `token` from destructuring
   const [currState, setCurrState] = useState("Login");
   const [data, setData] = useState({
     name: "",
@@ -21,7 +21,8 @@ const LoginPopup = ({ setShowLogin }) => {
 
   const onLogin = async (event) => {
     event.preventDefault();
-    let endpoint = currState === "Login" ? "/api/user/login" : "/api/user/register";
+    let endpoint =
+      currState === "Login" ? "/api/user/login" : "/api/user/register";
     let newUrl = url + endpoint;
 
     try {
@@ -44,7 +45,11 @@ const LoginPopup = ({ setShowLogin }) => {
       <form onSubmit={onLogin} className="login-popup-container">
         <div className="login-popup-title">
           <h2>{currState}</h2>
-          <img onClick={() => setShowLogin(false)} src={assets.cross_icon} alt="" />
+          <img
+            onClick={() => setShowLogin(false)}
+            src={assets.cross_icon}
+            alt=""
+          />
         </div>
         <div className="login-popup-inp">
           {currState === "Login" ? (
@@ -85,11 +90,13 @@ const LoginPopup = ({ setShowLogin }) => {
         </div>
         {currState === "Login" ? (
           <p>
-            Create a new account? <span onClick={() => setCurrState("Sign Up")}>Click Here</span>
+            Create a new account?{" "}
+            <span onClick={() => setCurrState("Sign Up")}>Click Here</span>
           </p>
         ) : (
           <p>
-            Already have an account? <span onClick={() => setCurrState("Login")}>Login here</span>
+            Already have an account?{" "}
+            <span onClick={() => setCurrState("Login")}>Login here</span>
           </p>
         )}
       </form>
